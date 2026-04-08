@@ -128,6 +128,19 @@ Projektet integrerar primärt med **The Cat API** för att leverera realtidsdata
 
 ---
 
+## 🖼️ Skärmbilder
+
+- **ReactProjekt – Startsida**  
+  ![WPF GameView](public/Startsida.png)
+
+- **ReactProjekt – Sökfunktion**  
+  ![Console Round](public/SökKatter.png)
+
+- **ReactProjekt – Galleri**  
+  ![Console Round](public/Galleri.png)
+
+---
+
 ## 📚 Katalog över viktiga filer
 
 <details>
