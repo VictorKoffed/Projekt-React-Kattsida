@@ -161,6 +161,34 @@ Projektet integrerar primärt med **The Cat API** för att leverera realtidsdata
 
 ---
 
+## 👥 Projektgrupp & Kontext
+
+Detta projekt utvecklades som en del av kursen:
+
+**Systemarkitektur och systemintegration (15 hp)**  
+(*System Architecture and System Integration, 15 credits*)
+
+Projektet genomfördes i en grupp där vi utvecklade en webbaserad klientapplikation som en del av en större systemlösning baserad på tjänsteorienterad arkitektur (SOA).
+
+### 🎯 Fokus i projektet
+
+Arbetet inkluderade:
+
+- Integration med externa och interna API:er (t.ex. The Cat API och eget backend-API)  
+- Utveckling av en klientapplikation i React som konsumerar webbtjänster  
+- Hantering av asynkron data och dynamiska användargränssnitt  
+- Design av komponentbaserad arkitektur med fokus på löst kopplade system  
+- Implementation av routing och state management i en SPA  
+
+### 🧠 Lärandeperspektiv
+
+Projektet gav praktisk erfarenhet inom:
+
+- Systemintegration mellan frontend och backend  
+- Tjänsteorienterad arkitektur (SOA)  
+- API-design och konsumtion av REST-tjänster  
+- Hur moderna webbapplikationer samverkar i distribuerade system  
+
 ## AI-ASSISTANS OCH KODGENERERING
 
 Delar av denna kodbas har skapats, refaktorerats eller assisterats med hjälp av stora språkmodeller (LLM) och AI-verktyg för att effektivisera utvecklingsprocessen och förbättra kodkvaliteten.
