@@ -1,0 +1,74 @@
+/* Grundlayout */
+.gallery-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 900px; /* Begränsar bredden */
+  margin: 0 auto; /* Centrerar galleriet på sidan */
+}
+
+/* Grid-system */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* Anpassar antalet bilder per rad */
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* Enskilda bilder */
+.grid-cell {
+  position: relative;
+  height: 150px; /* Mindre bilder för att passa bättre */
+  overflow: hidden;
+  border-radius: 10px; /* Rundade kanter */
+}
+
+/* Anpassning av bilder */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Beskär bilderna så de fyller rutan */
+  border-radius: 10px;
+}
+
+/* Knapp för att ladda fler katter */
+.load-more-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px auto; /* Centrerar knappen */
+  display: block;
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+  z-index: 1000; /* Säkerställer att knappen är överst */
+}
+
+.load-more-btn:hover {
+  background-color: #ffd864aa;
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+  .gallery-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .grid-cell {
+    height: 120px; /* Mindre bilder på mindre skärmar */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-cell {
+    height: 100px; /* Ännu mindre bilder på mobil */
+  }
+}

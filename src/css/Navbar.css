@@ -1,0 +1,116 @@
+.navbar {
+  background-color: #ffd700;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logotyp + Sidnamn */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Skapar avstånd mellan bild och text */
+}
+
+.logo img {
+  max-height: 50px; /* Justera storleken */
+  width: auto;
+  display: block;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Anpassa efter din design */
+  white-space: nowrap; /* Förhindra radbrytning */
+}
+
+/* Navigationslänkar */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  background-color: #f7ac29;
+  color: white;
+}
+
+/* Responsiv design för mindre skärmar */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .logo {
+    flex-direction: column; /* Placera logotyp och text vertikalt */
+    align-items: center;
+  }
+
+  .logo img {
+    max-height: 40px; /* Minska storleken på logotypen */
+  }
+
+  .logo-text {
+    font-size: 18px; /* Minska textstorleken på små skärmar */
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+.nav-links a.active {
+  background-color: #f7ac29;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
