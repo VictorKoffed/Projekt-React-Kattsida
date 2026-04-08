@@ -58,11 +58,40 @@ ReactProjektKatt/
 ├─ package.json                # Beroenden (React 19, Router v7) och skript
 └─ vite.config.js              # Konfiguration för Vite-byggverktyget
 
+```
+
 ---
 
-🚀 Kom igång (Build & Run)FörutsättningarNode.js (senaste LTS-versionen rekommenderas)npm (följer med Node.js)Installera och körKlona arkivet till din lokala maskin.Öppna terminalen i projektmappen och installera beroenden:Bashnpm install
-Starta utvecklingsservern:Bashnpm run dev
-Öppna webbläsaren på den adress som visas i terminalen (standard är http://localhost:5173).⚙️ FunktionerRassökning – Dynamisk hämtning av kattraser med automatisk filtrering för att endast visa kompletta profiler med bilder.Live Galleri – Slumpmässigt genererade bilder med en "Ladda fler"-funktion som triggar nya asynkrona anrop.SPA-navigering – Sömlös växling mellan sex olika vyer utan omladdning av sidan via React Router v7.Rasinformation – Detaljerad vy över temperament och direkta Wikipedia-länkar för fördjupad läsning.Produktintegration – En dedikerad sektion för kattillbehör som konsumerar ett sekundärt API.🧱 ArkitekturKodavsnittgraph TD
+## 🚀 Kom igång (Build & Run)
+
+### Förutsättningar
+- **Node.js** (senaste LTS-versionen rekommenderas)
+- **npm** (följer med Node.js)
+
+### Installera och kör
+1. Klona arkivet till din lokala maskin.
+2. Öppna terminalen i projektmappen och installera beroenden:
+   `npm install`
+3. Starta utvecklingsservern:
+   `npm run dev`
+4. Öppna webbläsaren på den adress som visas i terminalen (standard är `http://localhost:5173`).
+
+---
+
+## ⚙️ Funktioner
+
+- **Rassökning** – Dynamisk hämtning av kattraser med automatisk filtrering för att endast visa kompletta profiler med bilder.
+- **Live Galleri** – Slumpmässigt genererade bilder med en "Ladda fler"-funktion som triggar nya asynkrona anrop.
+- **SPA-navigering** – Sömlös växling mellan sex olika vyer utan omladdning av sidan via React Router v7.
+- **Rasinformation** – Detaljerad vy över temperament och direkta Wikipedia-länkar för fördjupad läsning.
+- **Produktintegration** – En dedikerad sektion för kattillbehör som konsumerar ett sekundärt API.
+
+---
+
+## 🧱 Arkitektur
+
+```mermaid
+graph TD
   App["App.jsx (Router)"] --> Nav["Navbar Component"]
   App --> Routes["Routes Engine"]
   Routes --> Home["Home Page"]
@@ -70,4 +99,68 @@ Starta utvecklingsservern:Bashnpm run dev
   Routes --> Gallery["Gallery Page"]
   Search --> API["The Cat API (Fetch)"]
   Gallery --> API
-Single Page Application (SPA): Använder klientbaserad routing för en snabb användarupplevelse.Komponentbaserad: Vyer är uppbyggda av mindre, hanterbara komponenter för bättre skalbarhet.🧩 Tekniska koncept som användsOmrådeImplementationFörklaringState ManagementuseStateHanterar dynamiskt tillstånd för API-data, valda kattraser och omrenderingar.Lifecycle HooksuseEffectHanterar sidoeffekter såsom initial datahämtning vid komponentladdning.Asynkron Fetchfetch().then()Utför HTTP-anrop till externa REST API:er med JSON-hantering och felmeddelanden.List Rendering.map()Renderar effektivt listor av raser och bildgallerier baserat på dynamiska arrayer.📡 API-integrationProjektet integrerar primärt med The Cat API för att leverera realtidsdata:Autentisering: Använder API-nycklar via request headers (x-api-key) för att få åtkomst till fullständiga raslistor.Sanering av data: Inkluderar logik för att validera inkommande objekt (t.ex. kontroll av bild-URL:er) innan de sparas i appens state.📚 Katalog över viktiga filer<details><summary><strong>Kärnfiler & Konfiguration</strong></summary>App.jsx – Hanterar hela applikationens routing och huvudlayout.package.json – Definierar beroenden såsom React 19 och React Router 7.vite.config.js – Konfigurerar byggprocessen för Vite-miljön.</details><details><summary><strong>Vyer & Logik</strong></summary>Search.jsx – Central komponent för asynkron hämtning och filtrering av kattraser.Gallery.jsx – Implementerar logik för slumpmässiga bildflöden och manuell uppdatering av state.Navbar.jsx – Hanterar navigeringslänkar och globalt UI.</details>AI-ASSISTANS OCH KODGENERERINGDelar av denna kodbas har skapats, refaktorerats eller assisterats med hjälp av stora språkmodeller (LLM) och AI-verktyg för att effektivisera utvecklingsprocessen och förbättra kodkvaliteten.Verktyg som använtsChatGPT (för utformning av arkitektur och dokumentation).Gemini (för felsökning av router-logik och konvertering av komponenter).Omfattning av AI-assistansAI har huvudsakligen använts för:Boilerplate-kod: Generering av standardstruktur för sidor och CSS-filer.API-logik: Strukturering av asynkrona anrop baserat på The Cat API:s dokumentation.Dokumentation: Förbättring av kommentarer och generering av denna README-fil.Mänsklig granskningAll AI-genererad kod har granskats, testats och validerats manuellt av en mänsklig utvecklare för att säkerställa funktionalitet.
+
+```
+
+---
+
+- **Single Page Application (SPA):** Använder klientbaserad routing för en snabb användarupplevelse.
+- **Komponentbaserad:** Vyer är uppbyggda av mindre, hanterbara komponenter för bättre skalbarhet.
+
+---
+
+## 🧩 Tekniska koncept som används
+
+| Område | Implementation | Förklaring |
+|:---|:---|:---|
+| **State Management** | `useState` | Hanterar dynamiskt tillstånd för API-data, valda kattraser och omrenderingar. |
+| **Lifecycle Hooks** | `useEffect` | Hanterar sidoeffekter såsom initial datahämtning vid komponentladdning. |
+| **Asynkron Fetch** | `fetch().then()` | Utför HTTP-anrop till externa REST API:er med JSON-hantering och felmeddelanden. |
+| **List Rendering** | `.map()` | Renderar effektivt listor av raser och bildgallerier baserat på dynamiska arrayer. |
+
+---
+
+## 📡 API-integration
+
+Projektet integrerar primärt med **The Cat API** för att leverera realtidsdata:
+- **Autentisering:** Använder API-nycklar via request headers (`x-api-key`) för att få åtkomst till fullständiga raslistor.
+- **Sanering av data:** Inkluderar logik för att validera inkommande objekt (t.ex. kontroll av bild-URL:er) innan de sparas i appens state.
+
+---
+
+## 📚 Katalog över viktiga filer
+
+<details>
+<summary><strong>Kärnfiler & Konfiguration</strong></summary>
+
+- `App.jsx` – Hanterar hela applikationens routing och huvudlayout.
+- `package.json` – Definierar beroenden såsom React 19 och React Router 7.
+- `vite.config.js` – Konfigurerar byggprocessen för Vite-miljön.
+</details>
+
+<details>
+<summary><strong>Vyer & Logik</strong></summary>
+
+- `Search.jsx` – Central komponent för asynkron hämtning och filtrering av kattraser.
+- `Gallery.jsx` – Implementerar logik för slumpmässiga bildflöden och manuell uppdatering av state.
+- `Navbar.jsx` – Hanterar navigeringslänkar och globalt UI.
+</details>
+
+---
+
+## AI-ASSISTANS OCH KODGENERERING
+
+Delar av denna kodbas har skapats, refaktorerats eller assisterats med hjälp av stora språkmodeller (LLM) och AI-verktyg för att effektivisera utvecklingsprocessen och förbättra kodkvaliteten.
+
+### Verktyg som använts
+- **ChatGPT** (för utformning av arkitektur och dokumentation).
+- **Gemini** (för felsökning av router-logik och konvertering av komponenter).
+
+### Omfattning av AI-assistans
+AI har huvudsakligen använts för:
+1. **Boilerplate-kod:** Generering av standardstruktur för sidor och CSS-filer.
+2. **API-logik:** Strukturering av asynkrona anrop baserat på The Cat API:s dokumentation.
+3. **Dokumentation:** Förbättring av kommentarer och generering av denna README-fil.
+
+### Mänsklig granskning
+All AI-genererad kod har granskats, testats och validerats manuellt av en mänsklig utvecklare för att säkerställa funktionalitet.
